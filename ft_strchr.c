@@ -6,7 +6,7 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:27:05 by yussen            #+#    #+#             */
-/*   Updated: 2025/05/28 20:00:02 by yussen           ###   ########.fr       */
+/*   Updated: 2025/05/28 20:33:30 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,8 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return (char *)(s + i);
+			return ((char *)(s + i));
 		i++;
 	}
 	return (0);
-}
-int	main(void)
-{
-		printf("%s\n", strchr("cba", 'b'));
 }
