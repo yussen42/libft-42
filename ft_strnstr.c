@@ -6,7 +6,7 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 12:02:26 by yussen            #+#    #+#             */
-/*   Updated: 2025/06/01 14:51:41 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/01 16:48:45 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,4 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		i++;
 	}
 	return (0);
-}
-int	main()
-{
-	char *big = "Foo Bar Baz";
-	char *little = "Foo";
-	
-	printf("%s", ft_strnstr(big, little, 3));
 }
