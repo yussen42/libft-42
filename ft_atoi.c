@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yussen <yussen@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 12:40:24 by yussen            #+#    #+#             */
-/*   Updated: 2025/05/27 12:47:55 by yussen           ###   ########.fr       */
+/*   Created: 2025/05/28 16:49:36 by yussen            #+#    #+#             */
+/*   Updated: 2025/05/30 17:07:41 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	sign = 1;
 	res = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 12) || (nptr[i] == ' '))
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || (nptr[i] == ' '))
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
