@@ -6,7 +6,7 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 11:33:36 by yussen            #+#    #+#             */
-/*   Updated: 2025/06/02 18:34:09 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/02 18:35:39 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (i);
 	
-}
-int	main()
-{
-	char	dst[] = "tal";
-	char	src[] = "ha";
-	printf("%zu\n", ft_strlcat(dst, src, 6));
-	printf("%s\n", dst);
 }
