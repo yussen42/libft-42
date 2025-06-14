@@ -6,7 +6,7 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 18:21:05 by yussen            #+#    #+#             */
-/*   Updated: 2025/06/15 00:42:13 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/15 02:30:52 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_itoa(int n)
 	char	*res;
 
 	n_base = base(n);
-	res = (char *)malloc(n_base);
+	res = (char *)malloc(n_base + 1);
 	if (!res)
 		return (NULL);
 	res[n_base] = '\0';
