@@ -6,13 +6,13 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:13:04 by yussen            #+#    #+#             */
-/*   Updated: 2025/05/28 18:17:50 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/11 07:54:04 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 127)
+	if (c >= 32 && c < 127)
 		return (1);
 	else
 		return (0);
