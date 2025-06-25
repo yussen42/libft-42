@@ -6,14 +6,14 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:12:07 by yussen            #+#    #+#             */
-/*   Updated: 2025/05/28 18:15:51 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/22 22:30:30 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 177)
-		return (1);
+	if (c >= 0 && c <= 127)
+		return (42);
 	else
 		return (0);
 }
