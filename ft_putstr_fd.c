@@ -6,7 +6,7 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:12:51 by yussen            #+#    #+#             */
-/*   Updated: 2025/06/12 13:17:52 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/15 09:17:54 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s[i])
 	{
