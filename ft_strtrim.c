@@ -6,23 +6,13 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 23:53:18 by yussen            #+#    #+#             */
-/*   Updated: 2025/06/10 15:42:19 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/24 06:11:38 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	le_s1(const char *s1)
-{
-	size_t	i;
-
-	i = 0;
-	while (s1[i])
-		i++;
-	return (i);
-}
-
-static size_t	b_c(const char *s1, const char *set)
+static size_t	beginning_count(const char *s1, const char *set)
 {
 	size_t	i;
 	size_t	j;
@@ -51,14 +41,14 @@ static size_t	b_c(const char *s1, const char *set)
 	return (control - 1);
 }
 
-static size_t	e_c(const char *s1, const char *set)
+static size_t	ending_count(const char *s1, const char *set)
 {
 	size_t	i;
 	size_t	j;
 	size_t	flag;
 	size_t	control;
 
-	i = le_s1(s1) - 1;
+	i = ft_strlen(s1) - 1;
 	control = 0;
 	while (i > 0)
 	{
@@ -84,18 +74,22 @@ char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	b_l;
 	size_t	new_len;
-	size_t	first_len;
-	int		i;
+	size_t	i;
 	char	*res;
 
-	first_len = le_s1(s1);
+	if (!s1 || !set)
+		return (NULL);
+	if (*s1 == '\0')
+		return (ft_calloc(1, 1));
 	i = 0;
-	b_l = b_c(s1, set);
-	new_len = first_len - (b_l + e_c(s1, set)) + 1;
+	b_l = beginning_count(s1, set);
+	new_len = ft_strlen(s1) - (b_l + ending_count(s1, set));
+	if (new_len > ft_strlen(s1))
+		return (ft_strdup(""));
 	res = malloc(new_len + 1);
 	if (!res)
 		return (NULL);
-	while (i < new_len - 1)
+	while (i < new_len)
 	{
 		res[i] = s1[i + b_l];
 		i++;
