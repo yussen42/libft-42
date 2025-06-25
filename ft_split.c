@@ -6,19 +6,18 @@
 /*   By: yussen <yussen@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 18:40:33 by yussen            #+#    #+#             */
-/*   Updated: 2025/06/11 05:33:29 by yussen           ###   ########.fr       */
+/*   Updated: 2025/06/18 16:56:44 by yussen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char const *s, char c)
+static int	word_count(char const *s, char c)
 {
 	int	i;
 	int	w_count;
 	int	flag;
 
-	flag = 0;
 	i = 0;
 	w_count = 0;
 	while (s[i])
@@ -37,57 +36,65 @@ int	word_count(char const *s, char c)
 	return (w_count);
 }
 
-void	fill_word(char const *s, char c, char **res)
+static void	*ft_free(char **res, int flag)
 {
-	int	i;
+	while (flag >= 0)
+		free(res[flag--]);
+	free(res);
+	return (NULL);
+}
+
+static void	find_start(char const *s, char c, int *i, int *start)
+{
+	while (s[*i] == c && s[*i])
+	{
+		(*i)++;
+		(*start)++;
+	}
+}
+
+static void	*fill_word(char const *s, char c, char **res, int i)
+{
 	int	start;
 	int	l_word;
-	
+	int	flag;
+
+	flag = 0;
 	start = 0;
-	i = 0;
 	while (s[i])
 	{
 		l_word = 0;
-		while (s[i] == c && s[i])
-		{
-			i++;
-			start++;
-		}
+		find_start(s, c, &i, &start);
 		while (s[i] != c && s[i])
 		{
-			i++;
 			l_word++;
+			i++;
 		}
-		*res++ = ft_substr(s, start, l_word);
+		if (i > start)
+		{
+			res[flag] = ft_substr(s, start, l_word);
+			if (!res[flag])
+				return (ft_free(res, flag));
+			flag++;
+		}
 		start += l_word;
 	}
+	return (res);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
+	int		i;
 
+	i = 0;
+	if (!s)
+		return (NULL);
 	res = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
 	if (!res)
 		return (NULL);
-	fill_word(s, c, res);
+	if (!fill_word(s, c, res, i))
+		return (NULL);
+	res[word_count(s, c)] = NULL;
 	return (res);
-	
-}
-
-int	main()
-{
-	char	s[] = "yusuf talha sen";
-	
-	char **res = ft_split(s, ' ');
-	
-	//int i = 0;
-	//while (i < sizeof(res))
-	//{
-	//	printf("%s", res[i++]);
-	//}
-	printf("%s\n", res[0]);
-	printf("%s\n", res[1]);
-	printf("%s\n", res[2]);
-	printf("%s\n", res[3]);
 }
